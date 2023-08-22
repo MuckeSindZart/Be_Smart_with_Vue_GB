@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello HTML</h1>
+    <div id="app">
+      <h2>{{ message }}</h2>
+      <!-- <h3>{{ sayHello('newPuk') }}</h3> -->
+      <button v-on:click="changeText">clickME</button>
+      <p>counter: {{counter}}</p>
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="Increase(2,$event)">Increase2</button>
+      <h3 v-on:mousemove="mouseMove($event)">
+        MouseMove: {{x}}-{{y}}
+        <span v-on:mouseMove.stop.prevent>stop</span>
+      </h3>
+      <p v-html="bigText"></p>
+      <h4 v-if="productInCart">Add in Cart?</h4>
+      <h4 v-else="!productInCart">Del from Cart?</h4>
+
+      <h4 v-show="productInCart">Show</h4>
+
+      <button @click="productInCart = !productInCart">Add product</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="script.js"></script>
+    <script></script>
+  </body>
+</html>

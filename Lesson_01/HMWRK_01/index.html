@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div style="margin: 20px 0 20px 20px" id="task1">
+      <button @click="reverseText">{{ buttonText }}</button>
+    </div>
+    <hr />
+    <!--  -->
+    <script>
+      new Vue({
+        el: "#task1",
+        data: {
+          buttonText: "Перевернуть",
+        },
+        methods: {
+          reverseText() {
+            this.buttonText = this.buttonText.split("").reverse().join("");
+          },
+        },
+      });
+    </script>
+
+    <!--  -->
+    <div style="margin: 20px 0 20px 20px" id="task2-3">
+      <input v-model="newItemText" type="text" placeholder="Введите текст" />
+      <button @click="addItem">Добавить</button>
+      <button @click="clearList">Удалить все</button>
+      <ul>
+        <li v-for="(item, index) in itemList" :key="index">
+          {{ item }}
+          <button @click="removeItem(index)">Удалить</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#task2-3",
+        data: {
+          itemList: [],
+          newItemText: "", // Исправление: добавляем пустую строку по умолчанию
+        },
+        methods: {
+          addItem() {
+            if (this.newItemText.trim() === "") {
+              this.newItemText = "Новый элемент списка";
+            }
+            this.itemList.push(this.newItemText);
+            this.newItemText = ""; // Очищаем поле ввода после добавления
+          },
+          removeItem(index) {
+            this.itemList.splice(index, 1);
+          },
+          clearList() {
+            this.itemList = [];
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
