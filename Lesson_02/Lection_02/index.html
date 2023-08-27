@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .block {
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+      }
+      .btn {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        margin: 0;
+      }
+      .like {
+        background-color: red;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="newItemText" @keyup.enter="send(newItemText)" />
+      <button @click="send(newItemText)">Push</button>
+      <hr />
+
+      <!--  -->
+
+      <h2>Link</h2>
+      <a :href="linkHref">my link</a>
+      <img :src="imgPhoto" alt="photoIMG" />
+      <hr />
+
+      <!--  -->
+      <h2>Block</h2>
+      <div class="block" :style="styleBlock">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, earum.
+      </div>
+      <hr />
+
+      <!--  -->
+
+      <h2>heading v-model</h2>
+      <h3>{{modelData}}</h3>
+      <input type="text" v-model.lazy.trim="modelData" />
+      <button @click="headingText" class="headinButt">Click</button>
+      <hr />
+
+      <!--  -->
+
+      <h2>Calc</h2>
+      <input type="text" v-model.number="firstNumb" />
+      <input type="text" v-model.number="secondNumb" />
+      = {{calcResult}}
+      <div>
+        <button @click="plusistel">+</button>
+        <button @click="minusitel">-</button>
+        <button @click="umnogitel">*</button>
+        <button @click="delitel">/</button>
+      </div>
+      <hr />
+
+      <!--  -->
+      <h2>Constructor</h2>
+      <p>width</p>
+      <input type="text" v-model="blockWidth" />
+      <p>color</p>
+      <input type="text" v-model="blockColor" />
+      <p>block</p>
+      <div class="block" :style="changeBlock">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, neque.
+      </div>
+      <hr />
+
+      <!--  -->
+      <h2>List</h2>
+      <ul>
+        <li v-for="item in listItem" :key="item.id">{{item}}</li>
+      </ul>
+
+      <input type="text" v-model="newList" @keyup.enter="addItem" />
+      <hr />
+      <!--  -->
+      <h2>Product List</h2>
+      <article v-for="article in data" :key="article.id" class="article">
+        <h3 class="article__title">{{article.title}}</h3>
+        <p class="article__text">{{article.text}}</p>
+        <button class="btn" :class="{like: likeToggle}" @click="likeToggle = !likeToggle">
+          Like
+        </button>
+      </article>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          likeToggle: false,
+          data: [
+            {
+              title: "title text",
+              text: "description text info element",
+            },
+            {
+              title: "next title text",
+              text: "next description text info element",
+            },
+          ],
+
+          newList: "",
+          listItem: [1, 2, 3, 4],
+          firstNumb: 0,
+          secondNumb: 0,
+          calcResult: 0,
+          blockWidth: 100,
+          blockColor: "#ccc",
+
+          newItemText: "",
+          modelData: "",
+          linkHref: "product.html",
+          imgPhoto:
+            "https://gbcdn.mrgcdn.ru/uploads/avatar/4253833/attachment/thumb-af5b9c0bd216d06d286a4736af6d17ec.jpg",
+          styleBlock: {
+            backgroundColor: "green",
+            color: "red",
+            border: "solid blue 10px",
+          },
+        },
+        computed: {
+          name() {
+            return this.data;
+          },
+          changeBlock() {
+            return {
+              width: `${this.blockWidth}px`,
+              height: `${this.blockWidth}px`,
+              backgroundColor: this.blockColor,
+            };
+          },
+        },
+        methods: {
+          addItem() {
+            this.listItem.push(this.newList);
+          },
+
+          headingText() {
+            if (this.modelData === "") {
+              this.modelData = "Empty";
+            }
+          },
+          send(text) {
+            console.log("Push Puk", {text});
+          },
+
+          plusistel() {
+            this.calcResult = this.firstNumb + this.secondNumb;
+            return this.calcResult;
+          },
+          minusitel() {
+            this.calcResult = this.firstNumb - this.secondNumb;
+            return this.calcResult;
+          },
+
+          umnogitel() {
+            this.calcResult = this.firstNumb * this.secondNumb;
+            return this.calcResult;
+          },
+
+          delitel() {
+            this.calcResult = this.firstNumb / this.secondNumb;
+            return this.calcResult;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -12,180 +12,287 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- header -->
+
     <header class="header center">
       <div class="logo">
         <img class="logo-img" src="img/logo.svg" alt="logo" />
         <h2 class="logo-text">Interno</h2>
       </div>
-      <div class="menubar">
-        <div class="menu">
-          <h3 class="menu">Project</h3>
-          <h3 class="menu">Blog</h3>
-          <h3 class="menu">Home</h3>
-        </div>
-      </div>
+
+      <nav class="menu">
+        <a href="./index.html" class="menu__link">Home</a>
+        <a href="#" class="menu__link">Project</a>
+        <a href="./blog.html" class="menu__link">Blog</a>
+      </nav>
     </header>
-    <section class="banner center">
-      <img class="banner-img" src="img/banner.png" alt="banner" />
-      <div class="intro">
-        <h2 class="intro-title">Let Your Home Be Unique</h2>
-        <h2 class="intro-subtitle">
-          There are many variations of the passages of lorem Ipsum from available, majority.
-        </h2>
-        <div class="intro-button">
-          <a class="intro-button-text" href="#">Get Started</a>
-          <img src="img/vector1.svg" alt="vector1" />
-        </div>
-      </div>
-    </section>
-    <section class="project center">
-      <div class="heading">
-        <div class="heading-title">Follow Our Projects</div>
-        <div class="heading-subtitle">
-          It is a long established fact that a reader will be distracted by the of readable content of
-          page lookings at its layouts points.
-        </div>
-      </div>
-      <div class="kitchen-grid">
-        <!-- Kitchen Item 1 -->
-        <div class="kitchen">
-          <img class="project-image top-left" src="img/photo1.png" alt="photo1" />
-          <div class="project-block_text">
-            <div class="project-subcontent">
-              <h3 class="project-title">Modern Kitchen</h3>
-              <h3 class="project-subtitle">Decor / Architecture</h3>
-            </div>
-            <a href="#">
-              <img src="img/vector2.svg" alt="vector2" />
-            </a>
+
+    <!-- main -->
+
+    <main class="home-wrapper">
+      <section class="banner center">
+        <img class="banner-img" src="img/banner.png" alt="banner" />
+        <div class="banner__intro">
+          <h2 class="banner__intro-title">Let Your Home Be Unique</h2>
+          <h2 class="banner__intro-subtitle">
+            There are many variations of the passages of lorem Ipsum from available, majority.
+          </h2>
+          <div class="banner__intro-button">
+            <a class="banner__intro-button-text" href="#">Get Started</a>
+            <img src="img/vector1.svg" alt="vector1" />
           </div>
         </div>
-        <!-- Kitchen Item 2 -->
-        <div class="kitchen">
-          <img class="project-image top-right" src="img/photo2.png" alt="photo2" />
-          <div class="project-block_text">
-            <div class="project-subcontent">
-              <h3 class="project-title">Modern Kitchen</h3>
-              <h3 class="project-subtitle">Decor / Architecture</h3>
-            </div>
-            <a href="#">
-              <img src="img/vector2.svg" alt="vector2" />
-            </a>
+      </section>
+
+      <!--  -->
+
+      <section class="project center">
+        <div class="heading">
+          <div class="heading-title">Follow Our Projects</div>
+          <div class="heading-subtitle">
+            It is a long established fact that a reader will be distracted by the of readable content
+            of page lookings at its layouts points.
           </div>
         </div>
-        <!-- Kitchen Item 3 -->
-        <div class="kitchen">
-          <img class="project-image bottom-left" src="img/photo3.png" alt="photo3" />
-          <div class="project-block_text">
-            <div class="project-subcontent">
-              <h3 class="project-title">Modern Kitchen</h3>
-              <h3 class="project-subtitle">Decor / Architecture</h3>
-            </div>
-            <a href="#">
-              <img src="img/vector2.svg" alt="vector2" />
-            </a>
-          </div>
-        </div>
-        <!-- Kitchen Item 4 -->
-        <div class="kitchen">
-          <img class="project-image bottom-right" src="img/photo4.png" alt="photo4" />
-          <div class="project-block_text">
-            <div class="project-subcontent">
-              <h3 class="project-title">Modern Kitchen</h3>
-              <h3 class="project-subtitle">Decor / Architecture</h3>
-            </div>
-            <a href="#">
-              <img src="img/vector2.svg" alt="vector2" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="counter">
-      <div class="counter-block center">
-        <div class="counter-item">
-          <h2 class="counter-number">12</h2>
-          <h2 class="counter-text">Years Of Experience</h2>
-        </div>
-        <div class="line"></div>
-        <div class="counter-item">
-          <h2 class="counter-number">85</h2>
-          <h2 class="counter-text">Success Project</h2>
-        </div>
-        <div class="line"></div>
-        <div class="counter-item">
-          <h2 class="counter-number">15</h2>
-          <h2 class="counter-text">Active Project</h2>
-        </div>
-        <div class="line"></div>
-        <div class="counter-item">
-          <h2 class="counter-number">95</h2>
-          <h2 class="counter-text">Happy CUstomers</h2>
-        </div>
-      </div>
-    </section>
-    <section class="blog center">
-      <div class="heading">
-        <div class="heading-title">Articles & News</div>
-        <div class="heading-subtitle">
-          It is a long established fact that a reader will be distracted by the of readable content of
-          a page when lookings at its layouts the points of using.
-        </div>
-      </div>
-      <div class="blog-items center">
-        <div class="blog-item">
-          <div class="blog-content">
-            <div class="tag">
-              <h3 class="tag-text">Kitchen Design</h3>
-            </div>
-            <img class="blog-img" src="img/photo5.png" alt="photo5" />
-            <div class="blog-subcontent">
-              <div class="blog-text">Let’s Get Solution For Building Construction Work</div>
-              <div class="blog-date">
-                <h3 class="date-title">26 December,2022</h3>
-                <a href="#">
-                  <img class="blog-button" src="img/vector2.svg" alt="vector2" />
-                </a>
+        <div class="kitchen-grid">
+          <!-- Kitchen Item 1 -->
+
+          <div class="kitchen">
+            <img class="project-image top-left" src="img/kitchen-grid-photo1.png" alt="photo1" />
+            <div class="project-block_text">
+              <div class="project-subcontent">
+                <h3 class="project-title">Modern Kitchen</h3>
+                <h3 class="project-subtitle">Decor / Architecture</h3>
               </div>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
             </div>
           </div>
-        </div>
-        <div class="blog-item item-colour">
-          <div class="blog-content">
-            <div class="tag">
-              <h3 class="tag-text">Living Design</h3>
-            </div>
-            <img class="blog-img" src="img/photo6.png" alt="photo6" />
-            <div class="blog-subcontent">
-              <div class="blog-text">Low Cost Latest Invented Interior Designing Ideas.</div>
-              <div class="blog-date">
-                <h3 class="date-title">22 December,2022</h3>
-                <a href="#">
-                  <img class="blog-button" src="img/vector3.svg" alt="vector3" />
-                </a>
+
+          <!-- Kitchen Item 2 -->
+
+          <div class="kitchen">
+            <img class="project-image top-right" src="img/kitchen-grid-photo2.png" alt="photo2" />
+            <div class="project-block_text">
+              <div class="project-subcontent">
+                <h3 class="project-title">Modern Kitchen</h3>
+                <h3 class="project-subtitle">Decor / Architecture</h3>
               </div>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
             </div>
           </div>
-        </div>
-        <div class="blog-item">
-          <div class="blog-content">
-            <div class="tag">
-              <h3 class="tag-text">Interior Design</h3>
-            </div>
-            <img class="blog-img" src="img/photo7.png" alt="photo7" />
-            <div class="blog-subcontent">
-              <div class="blog-text">Best For Any Office & Business Interior Solution</div>
-              <div class="blog-date">
-                <h3 class="date-title">25 December,2022</h3>
-                <a href="#">
-                  <img class="blog-button" src="img/vector2.svg" alt="vector2" />
-                </a>
+
+          <!-- Kitchen Item 3 -->
+
+          <div class="kitchen">
+            <img class="project-image bottom-left" src="img/kitchen-grid-photo3.png" alt="photo3" />
+            <div class="project-block_text">
+              <div class="project-subcontent">
+                <h3 class="project-title">Modern Kitchen</h3>
+                <h3 class="project-subtitle">Decor / Architecture</h3>
               </div>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Kitchen Item 4 -->
+
+          <div class="kitchen">
+            <img class="project-image bottom-right" src="img/kitchen-grid-photo4.png" alt="photo4" />
+            <div class="project-block_text">
+              <div class="project-subcontent">
+                <h3 class="project-title">Modern Kitchen</h3>
+                <h3 class="project-subtitle">Decor / Architecture</h3>
+              </div>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!--  -->
+
+      <section class="counter">
+        <div class="counter-block center">
+          <div class="counter-item">
+            <h2 class="counter-number">12</h2>
+            <h2 class="counter-text">Years Of Experience</h2>
+          </div>
+          <div class="line"></div>
+          <div class="counter-item">
+            <h2 class="counter-number">85</h2>
+            <h2 class="counter-text">Success Project</h2>
+          </div>
+          <div class="line"></div>
+          <div class="counter-item">
+            <h2 class="counter-number">15</h2>
+            <h2 class="counter-text">Active Project</h2>
+          </div>
+          <div class="line"></div>
+          <div class="counter-item">
+            <h2 class="counter-number">95</h2>
+            <h2 class="counter-text">Happy CUstomers</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- blog sec  -->
+
+      <section class="blog center">
+        <div class="heading">
+          <div class="heading-title">Articles & News</div>
+          <div class="heading-subtitle">
+            It is a long established fact that a reader will be distracted by the of readable content
+            of a page when lookings at its layouts the points of using.
+          </div>
+        </div>
+
+        <!-- 1 -->
+
+        <div class="blog__items">
+          <div class="blog__item">
+            <img src="img/main-blog-photo1.png" alt="photo" class="blog__item_img" />
+            <a href="#" class="blog__item_tag">Kitchan Design</a>
+            <p class="blog__item_text">Let’s Get Solution For Building Construction Work</p>
+            <div class="blog__item_content">
+              <div class="blog__item_content-date">26 December,2022</div>
+              <a href="pages/blog_details.html" class="blog__item_content-elem">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- 2 -->
+
+          <div class="blog__item">
+            <img src="img/main-blog-photo2.png" alt="photo" class="blog__item_img" />
+            <a href="#" class="blog__item_tag">Living Design</a>
+            <p class="blog__item_text">Low Cost Latest Invented Interior Designing Ideas.</p>
+            <div class="blog__item_content">
+              <div class="blog__item_content-date">22 December,2022</div>
+              <a href="pages/blog_details.html" class="blog__item_content-elem">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3 -->
+
+          <div class="blog__item">
+            <img src="img/main-blog-photo3.png" alt="photo" class="blog__item_img" />
+            <a href="#" class="blog__item_tag">Interior Design</a>
+            <p class="blog__item_text">Best For Any Office & Business Interior Solution</p>
+            <div class="blog__item_content">
+              <div class="blog__item_content-date">25 December,2022</div>
+              <a href="pages/blog_details.html" class="blog__item_content-elem">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="52"
+                  height="53"
+                  viewBox="0 0 52 53"
+                  fill="none">
+                  <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
+                  <path
+                    d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                    stroke="#292F36"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer  -->
+
     <footer class="footer center">
       <div class="footer-logo">
         <div class="logo">

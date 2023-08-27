@@ -1,6 +1,8 @@
 @import "header";
 @import "footer";
 
+@import "blog"; // blog.html page
+
 @import "variables";
 
 * {
@@ -28,59 +30,59 @@ a {
         margin-top: 70px;
         border-radius: 70px;
     }
-}
 
-.intro {
-    position: absolute;
-    max-width: 434px;
-    max-height: 342px;
-    margin-left: 50px;
-    display: flex;
-    justify-content: flex-start;
-    gap: 18px;
-    flex-direction: column;
-
-    &-title {
-        color: $primary-text-color;
-        font-family: $serif-font;
-        font-size: 65px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 125%;
-    }
-
-    &-subtitle {
-        color: $secondary-text-color;
-        font-family: $sans-serif-font;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 0.22px;
-    }
-
-    &-button {
-        width: 220px;
-        height: 75px;
+    &__intro {
+        position: absolute;
+        max-width: 434px;
+        max-height: 342px;
+        margin-left: 50px;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 7px;
-        border-radius: 18px;
-        background: $primary-text-color;
-        box-shadow: $box-shadow;
-    }
+        justify-content: flex-start;
+        gap: 18px;
+        flex-direction: column;
 
-    &-button-text {
-        color: $white-color;
-        text-align: center;
-        font-family: $sans-serif-font;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 125%;
-        letter-spacing: 0.36px;
+        &-title {
+            color: $primary-text-color;
+            font-family: $serif-font;
+            font-size: 65px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 125%;
+        }
+
+        &-subtitle {
+            color: $secondary-text-color;
+            font-family: $sans-serif-font;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 0.22px;
+        }
+
+        &-button {
+            width: 220px;
+            height: 75px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+            border-radius: 18px;
+            background: $primary-text-color;
+            box-shadow: $box-shadow;
+        }
+
+        &-button-text {
+            color: $white-color;
+            text-align: center;
+            font-family: $sans-serif-font;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 125%;
+            letter-spacing: 0.36px;
+        }
     }
 }
 
@@ -244,53 +246,6 @@ a {
     background: $accent-color;
 }
 
-.blog {
-    margin-bottom: 96px;
-
-    &-items {
-        display: flex;
-        justify-content: center;
-        gap: 27px;
-    }
-
-    &-item {
-        display: inline-flex;
-        padding: 21px;
-        align-items: flex-start;
-        gap: 10px;
-        border-radius: 62px;
-        border: 1px solid #e7e7e7;
-        box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25);
-        position: relative;
-    }
-
-    &-img {
-        border-radius: 43px 43px 0 0;
-    }
-
-    &-text {
-        color: $primary-text-color;
-        font-family: $serif-font;
-        font-size: 25px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 125%;
-        letter-spacing: 0.5px;
-        margin-top: 21px;
-        margin-bottom: 30px;
-    }
-
-    &-date {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &-button {
-        height: 50px;
-    }
-}
-
 .date-title {
     color: $secondary-text-color;
     font-family: $sans-serif-font;
@@ -300,10 +255,6 @@ a {
     line-height: 150%;
     letter-spacing: 0.16px;
     text-transform: capitalize;
-}
-
-.item-colour {
-    background-color: $background-color;
 }
 
 .button-white {

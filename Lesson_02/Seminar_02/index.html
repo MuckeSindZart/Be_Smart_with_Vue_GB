@@ -1,0 +1,72 @@
+<!-- Вы разрабатываете страницу для отображения информации о товаре. У вас есть объект product, который содержит информацию о товаре, включая название, цену и URL изображения товара. Вам необходимо отобразить эту информацию на странице с использованием v-bind. -->
+<!-- Добавьте кнопку, которая будет изменять цену товара. При нажатии на кнопку должна генерироваться скидка на товар от 1 до 20% и обновиться цена товара в соответствии с значением скидки -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <hr />
+    <div id="task1">
+      <h2>Название продукта: {{ product.name }}</h2>
+      <img v-bind:src="product.photo" :alt="product.name" class="img" />
+      <p>Цена: {{ product.price }} Скидка: {{ product.discount }} %</p>
+      <button type="button" v-bind:disabled="product.hasDiscount" @click="makeDiscount">
+        Со скидкой
+      </button>
+    </div>
+    <hr />
+
+    <!-- // -->
+    <hr />
+    <div id="task2">
+      <div v-for="user in users" :key="user.id">
+        <p>name: {{ user.name }}, age: {{ user.age }}</p>
+      </div>
+    </div>
+    <hr />
+
+    <!-- // -->
+    <hr />
+    <div id="task3">
+      <ul>
+        <li v-for="(product, index) in products" :key="index">
+          <input type="number" v-model="product.quantity" />
+          <input type="checkbox" v-model="product.isBought" />
+          <span>{{ product.name }}</span>
+        </li>
+      </ul>
+
+      <div v-for="(product, index) in products" :key="index">
+        {{product.name}} - {{product.quantity}}
+        <span v-if="product.isBought">☑</span>
+        <span v-else>☐</span>
+      </div>
+    </div>
+    <hr />
+
+    <!-- // -->
+    <hr />
+    <div id="task4">
+      <p>Имя: <input type="text" v-model="firstName" @keyup.enter="addContact" /></p>
+      <p>Фамилия: <input type="text" v-model="lastName" @keyup.enter="addContact" /></p>
+      <p>Email: <input type="email" v-model="email" @keyup.enter="addContact" /></p>
+      <br />
+      <button @click="addContact">Добавить</button>
+      <ul>
+        <li v-for="({firstName, lastName, email}, index) in contacts" :key="index">
+          {{ firstName }} {{ lastName }} - {{ email }}
+        </li>
+      </ul>
+    </div>
+    <hr />
+
+    <!-- // -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
