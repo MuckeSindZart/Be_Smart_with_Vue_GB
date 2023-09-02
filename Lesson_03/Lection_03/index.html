@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <
+    <script src="comp.js"></script>
+    >
+  </head>
+  <body>
+    <div id="app">
+      <new-comp title="Hello props"></new-comp>
+      <new-comp title="puk 2"></new-comp>
+      <new-comp :text="item" title="Вау" v-for="item in articles" :key="item.id"></new-comp>
+
+      <!-- <standart-comp :counter="counter"></standart-comp> -->
+      <!-- <standart-comp :counter="counter"></standart-comp> -->
+      <standart-comp :step="2"></standart-comp>
+      <standart-comp :step="1"></standart-comp>
+      <hr />
+      <button @click="currentTab = button" v-for="button in nameButtons" :key="button.id">
+        {{ button }}
+      </button>
+      <component :is="changeTab"></component>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          articles: ["text message", "new text message", "next text message"],
+          nameButtons: ["one", "two", "tree"],
+          currentTab: "one",
+          // counter: 0,
+        },
+        computed: {
+          changeTab() {
+            return `change-${this.currentTab}`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

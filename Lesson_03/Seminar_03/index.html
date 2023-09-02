@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="script.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+      td.id {
+        width: 50px;
+        text-align: center;
+      }
+      td.name {
+        width: 100px;
+        text-align: center;
+      }
+      td.price {
+        width: 100px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- task1 -->
+      <click-counter :step="1"></click-counter>
+      <click-counter :step="2"></click-counter>
+      <hr />
+      <!-- task2 -->
+      <element-list></element-list>
+      <hr />
+      <!-- task3 -->
+      <hr />
+      <div style="display: flex; gap: 20px">
+        <filter-lists></filter-lists>
+        <filter-lists></filter-lists>
+      </div>
+      <!-- task4 -->
+      <hr />
+      <product-lists> </product-lists>
+    </div>
+
+    <!--  -->
+
+    <script>
+      new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>

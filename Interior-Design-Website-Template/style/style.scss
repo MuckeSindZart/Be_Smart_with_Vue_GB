@@ -2,6 +2,7 @@
 @import "footer";
 
 @import "blog"; // blog.html page
+@import "blog-details"; // blog.html page
 
 @import "variables";
 
@@ -259,30 +260,4 @@ a {
 
 .button-white {
     color: $white-color;
-}
-
-.tag {
-    width: 124px;
-    height: 41px;
-    flex-shrink: 0;
-    border-radius: 8px 8px 8px 0px;
-    background: $white-color;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    top: 249px;
-    left: 51px;
-    align-items: center;
-
-    &-text {
-        color: $secondary-text-color;
-        font-family: $sans-serif-font;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 0.16px;
-        text-transform: capitalize;
-    }
 }

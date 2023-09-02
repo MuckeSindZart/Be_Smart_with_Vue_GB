@@ -33,7 +33,7 @@
     3. * При клике на элемент списка он должен быть удален. (по желанию)
     -->
     <div style="margin: 20px 0 20px 20px" id="task2-3">
-      <input v-model="newItemText" type="text" placeholder="Введите текст" />
+      <input v-model="newItemText" type="text" placeholder="Введите текст" @keyup.enter="addItem" />
       <button @click="addItem">Добавить</button>
       <button @click="clearList">Удалить все</button>
       <ul>
