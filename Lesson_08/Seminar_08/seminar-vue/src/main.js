@@ -1,13 +1,18 @@
 import Vue from "vue";
 import App from "./App.vue";
 import routes from "@/router";
-import store from "./store/store";
 import VueRouter from "vue-router";
 
 Vue.config.productionTip = false;
-import "./assets/style/style.scss";
 
 Vue.use(VueRouter);
+
 const router = new VueRouter({ mode: "history", routes });
 
-new Vue({ store, router, render: (h) => h(App) }).$mount("#app");
+router.beforeEach((to, from, next) => {
+  /* must call `next` */
+  console.log("beforeEach:", "to:", to.path, ", from:", from.path);
+  next();
+});
+
+new Vue({ render: (h) => h(App), router }).$mount("#app");
