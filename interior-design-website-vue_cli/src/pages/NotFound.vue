@@ -49,9 +49,11 @@ export default {
 .not-found {
   margin-top: 164px;
   margin-bottom: 170px;
+
   &__page {
     display: flex;
     gap: 81px;
+
     &_about {
       &_heading {
         display: flex;
@@ -67,6 +69,7 @@ export default {
         line-height: 125%;
         padding-bottom: 15px;
       }
+
       &_text {
         display: flex;
         width: 569px;
@@ -82,6 +85,7 @@ export default {
         letter-spacing: 0.35px;
         padding-bottom: 21px;
       }
+
       &_btn {
         width: 150px;
         cursor: pointer;

@@ -155,6 +155,7 @@ export default {
 <style scoped lang="scss">
 .top-banner {
   margin-bottom: 200px;
+  padding-top: 50px;
 }
 
 .top-banner__content {
