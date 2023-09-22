@@ -1,350 +1,464 @@
 <template>
-  <div class="box-content">
-    <main class="main">
-      <section class="project center">
-        <div class="project__info">
-          <div class="project__info__heading">
-            <h1 class="project__info__heading_text">Our Project</h1>
-            <nav class="project__info__heading_breadcrumb">
-              <ul class="project__info__heading_breadcrumb_ul">
-                <li class="project__info__heading_breadcrumb_li">
-                  <router-link
-                    to="/"
-                    class="project__info__heading_breadcrumb_link"
-                    >Home</router-link
-                  >
-                </li>
-                <li class="project__info__heading_breadcrumb_li">
-                  <router-link
-                    to="/Project"
-                    class="project__info__heading_breadcrumb_link"
-                    >Project</router-link
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
+  <div>
+    <section class="projects-intro">
+      <div class="projects-intro__content">
+        <div class="projects-intro__title-content">
+          <h2 class="projects-intro__heading">Our Project</h2>
+          <ul class="projects-intro__breadcrumbs">
+            <li class="projects-intro__breadcrumbs-item">
+              <router-link to="/" class="projects-intro__breadcrumbs-link">
+                Home
+              </router-link>
+            </li>
+            <li class="projects-intro__breadcrumbs-item">
+              <a href="#" class="projects-intro__breadcrumbs-link">Project</a>
+            </li>
+          </ul>
         </div>
-      </section>
-      <section class="categories center">
-        <div class="categories__tags">
-          <div class="categories__tags_button">
+      </div>
+    </section>
+    <div class="projects center">
+      <div class="projects__content">
+        <!-- categories -->
+        <div class="categories">
+          <div class="categories__content">
             <button
-              @click="cardsFilter"
-              v-for="button in buttons"
+              v-for="button in listOfButtons"
               :key="button.id"
-              :id="button.id"
-              class="categories__tags_btn"
+              @click="changeCurrentCategoryList(button.id)"
+              type="button"
+              :class="[
+                'categories__btn',
+                button.id === buttonIsActive ? 'categories__btn_active' : false,
+              ]"
             >
-              <h1 class="categories__tags_btn_text">{{ button.title }}</h1>
-              <!-- @click="show = button.id"  -->
+              {{ button.title }}
             </button>
           </div>
         </div>
-        <div class="categories__all">
-          <ProjectCard
-            :project="project"
-            v-for="project in currentCards"
+        <!-- projects -->
+        <!-- <div class="projects__items">
+          <div
+            v-for="project in displayedCards"
             :key="project.id"
-          />
-        </div>
-      </section>
-      <section class="pagination center">
-        <ul class="pagination__list">
-          <li class="pagination__list_item">
-            <a class="pagination__list_item_hov" href="#">
-              <h1 class="pagination__list_item_text"></h1>
+            class="projects__item"
+          >
+            <div class="star-box">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="53"
-                height="52"
-                viewBox="0 0 53 52"
+                @click="changeStarColor"
+                class="star"
+                :id="project.id"
+                width="36"
+                height="35"
+                viewBox="0 0 36 35"
                 fill="none"
-              >
-                <circle cx="26.5" cy="26" r="26" fill="#F4F0EC" />
-              </svg>
-            </a>
-          </li>
-          <li class="pagination__list_item">
-            <a class="pagination__list_item_hov" href="#">
-              <h1 class="pagination__list_item_text"></h1>
-              <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="53"
-                height="52"
-                viewBox="0 0 53 52"
-                fill="none"
               >
-                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                <g filter="url(#filter0_d_993_156)">
+                  <path
+                    d="M16.0992 1.80951C16.7004 -0.0279021 19.2996 -0.0279021 19.9008 1.80951L21.7983 7.60879C22.0673 8.43084 22.8342 8.98685 23.6992 8.98685H29.8097C31.7506 8.98685 32.5539 11.4732 30.98 12.6088L26.0604 16.1581C25.3546 16.6674 25.0591 17.5748 25.3298 18.402L27.2146 24.1623C27.8166 26.0025 25.7137 27.539 24.1435 26.4062L19.1702 22.818C18.4715 22.3139 17.5285 22.3139 16.8298 22.818L11.8565 26.4062C10.2863 27.539 8.18335 26.0025 8.78545 24.1623L10.6702 18.402C10.9409 17.5748 10.6454 16.6674 9.93955 16.1581L5.02004 12.6088C3.44611 11.4732 4.24942 8.98685 6.19025 8.98685H12.3008C13.1658 8.98685 13.9327 8.43084 14.2017 7.60879L16.0992 1.80951Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_993_156"
+                    x="0.186424"
+                    y="0.431396"
+                    width="35.6271"
+                    height="34.3619"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_993_156"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_993_156"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
               </svg>
-            </a>
-          </li>
-          <li class="pagination__list_item">
-            <a class="pagination__list_item_hov" href="#">
-              <h1 class="pagination__list_item_text"></h1>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="53"
-                height="52"
-                viewBox="0 0 53 52"
-                fill="none"
+            </div>
+            <img
+              class="projects__item-image"
+              :src="project.src"
+              :alt="project.alt"
+            />
+            <div class="projects__item-content">
+              <div class="projects__item-box">
+                <p class="projects__item-title">{{ project.title }}</p>
+                <p class="projects__item-subtitle">
+                  {{ project.subject }}
+                </p>
+              </div>
+              <router-link
+                :to="{ name: 'ProjectDetails', params: { id: project.id } }"
               >
-                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
-              </svg>
-            </a>
-          </li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+                        <circle cx="35" cy="35" r="35" fill="#F4F0EC" />
+                        <path d="M32 44L40 35L32 26" stroke="#292F36" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+              </router-link>
+            </div>
+          </div>
+        </div> -->
+        <ProjectCards :projects="displayedCards" />
 
-          <li class="pagination__list_item">
-            <a class="pagination__list_item_hov" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="53"
-                height="52"
-                viewBox="0 0 53 52"
-                fill="none"
-              >
-                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
-                <path
-                  d="M23.5571 32L29.5 25.3143L23.5571 18.6286"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
+        <PaginationComp
+          :totalNumberPaginationPages="setTotalNumberOfPages()"
+          :currentPage="currentPage"
+          @pagechanged="changeCurrentPage"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ProjectCard from "../components/ProjectCard.vue";
+import PaginationComp from "../components/Pagination.vue";
+import ProjectCards from "../components/ProjectCard.vue"
+import { mapGetters } from "vuex";
+
 export default {
   name: "ProjectPage",
+
+  watch: {
+    $route() {
+      //   console.log(to, from);
+      this.currentPage = this.$route.params.page;
+    },
+  },
+
   components: {
-    ProjectCard,
+    PaginationComp, ProjectCards
   },
 
   data() {
     return {
-      buttons: [
-        { id: 1, title: "Bathroom" },
-        { id: 2, title: "Bedroom" },
-        { id: 3, title: "Kitchen" },
-        { id: 4, title: "Living Area" },
-      ],
-      // show: 2,
-      // currentTab: "Bedroom",
+      currentPage: 1,
+      limitOfCardsPerPage: 8,
 
-      cards: [
-        {
-          id: 1,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom1.png"),
-          text: "Minimal Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 2,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom2.png"),
-          text: "Minimal Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 3,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom3.png"),
-          text: "Classic Minimal Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 4,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom4.png"),
-          text: "Modern Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 5,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom5.png"),
-          text: "Minimal Bedroom table",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 6,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom6.png"),
-          text: "System Table",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 7,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom7.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 8,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom8.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 9,
-          nameid: "Kitchen",
-          images: require("@/assets/imgs/project-bedroom7.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 10,
-          nameid: "Kitchen",
-          images: require("@/assets/imgs/project-bedroom8.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 11,
-          nameid: "Bathroom",
-          images: require("@/assets/imgs/project-bedroom6.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 12,
-          nameid: "Bathroom",
-          images: require("@/assets/imgs/project-bedroom7.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 13,
-          nameid: "Living Area",
-          images: require("@/assets/imgs/project-bedroom8.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 14,
-          nameid: "Living Area",
-          images: require("@/assets/imgs/project-bedroom6.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-      ],
+      currentCategoryList: [],
 
-      currentCards: [
-        {
-          id: 1,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom1.png"),
-          text: "Minimal Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 2,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom2.png"),
-          text: "Minimal Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 3,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom3.png"),
-          text: "Classic Minimal Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 4,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom4.png"),
-          text: "Modern Bedroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 5,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom5.png"),
-          text: "Minimal Bedroom table",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 6,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom6.png"),
-          text: "System Table",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 7,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom7.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
-        {
-          id: 8,
-          nameid: "Bedroom",
-          images: require("@/assets/imgs/project-bedroom8.png"),
-          text: "Modern Medroom",
-          link1: "Decor",
-          link2: "Artchitecture",
-        },
+      listOfButtons: [
+        { id: "bathroom", title: "Bathroom" },
+        { id: "bedroom", title: "Bedroom" },
+        { id: "kitchen", title: "Kitchen" },
+        { id: "livingroom", title: "LivingArea" },
       ],
+      buttonIsActive: "kitchen",
     };
   },
 
   methods: {
-    // shows() {
-    //     this.show = !this.show
-    // }
-
-    cardsFilter(e) {
-      this.currentCards = this.cards.filter(
-        (project) => project.nameid === e.target.innerText
+    setTotalNumberOfPages() {
+      //вычисляем общее кол-во страниц
+      return Math.ceil(
+        this.currentCategoryList.length / this.limitOfCardsPerPage
       );
-      //return this.cards;
+    },
+    paginateListOfCards(currentCategoryList) {
+      const newList = currentCategoryList;
+      // console.log(newList);
+      let page = this.currentPage;
+      let perPage = this.limitOfCardsPerPage;
+      let from = page * perPage - perPage;
+      let to = page * perPage;
+      return newList.slice(from, to);
+    },
+    changeCurrentPage(page) {
+      // console.log(page);
+      this.currentPage = page;
+    },
+    changeCurrentCategoryList(id) {
+      const buttonId = id;
+      this.currentCategoryList = [];
+      this.getAllCategoriesList.forEach((category) => {
+        if (category.tag === buttonId) {
+          this.buttonIsActive = buttonId;
+          return this.currentCategoryList.push(category);
+        }
+      });
+    },
+    changeStarColor(e) {
+      const star = e.target.closest(".star");
+      this.currentCategoryList.forEach((project) => {
+        if (star.id === project.id) {
+          star.classList.toggle("star_active");
+        }
+      });
+    },
+    updatedCurrentCategoryiesList() {
+      return (this.currentCategoryList = this.changeCurrentCategoryList);
     },
   },
-  // computed: {
-  //     filteredProjects() {
-  //         if (this.currentTab)
-  //             return this.cards.filter(
-  //                 (project) => project.nameid === this.currentTab
-  //             );
-  //         else return this.cards;
-  //     },
-  // },
+  computed: {
+    displayedCards() {
+      return this.paginateListOfCards(this.currentCategoryList);
+    },
+    ...mapGetters(["getAllCategoriesList"]),
+  },
+
+  //Начальная активная категория
+  created() {
+    this.changeCurrentCategoryList("kitchen");
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped lang="scss">
+.projects-intro {
+  padding-top: 50px;
+  margin-bottom: 200px;
+
+  &__content {
+    background-image: url("@/assets/images/project_banner.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    // width: 503px;
+    padding: 41px 78px;
+    border-radius: 37px 37px 0px 0px;
+    background: #fff;
+    // max-width: 503px;
+    margin-top: 178px;
+  }
+
+  &__heading {
+    color: #292f36;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  &__breadcrumbs {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__breadcrumbs-item {
+    display: inline-block;
+    align-items: center;
+
+    &:not(:last-child)::after {
+      content: "/";
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+
+  &__breadcrumbs-link {
+    color: #4d5053;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 0.22px;
+
+    &:hover {
+      color: #cda274;
+    }
+
+    &:active {
+      color: #4d5053;
+    }
+
+    &:focus {
+      color: #cda274;
+    }
+  }
+}
+
+.categories {
+  margin-bottom: 61px;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 18px;
+    border: 1px solid #e7e7e7;
+    margin-left: 140px;
+    margin-right: 140px;
+  }
+
+  &__btn {
+    color: #292f36;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.25;
+    text-align: center;
+    letter-spacing: 0.36px;
+    border: none;
+    border-radius: 18px;
+    background-color: #ffffff;
+    padding: 26px 66px;
+    width: 230px;
+
+    &:hover {
+      background-color: #cda274;
+    }
+
+    &:focus {
+      color: #ffffff;
+      background-color: #292f36;
+    }
+  }
+
+  &__btn_active {
+    color: #ffffff;
+    background-color: #292f36;
+  }
+}
+
+.projects {
+  margin-bottom: 200px;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-height: 3230px;
+    margin-bottom: 61px;
+
+  }
+
+  &__item {
+    max-width: calc(50% - 30px);
+    position: relative;
+
+    &:hover {
+      background: #f4f0ec;
+    }
+
+    &:hover circle {
+      fill: white;
+    }
+
+  }
+
+  &__item-image {
+    display: flex;
+    width: 100%;
+  }
+
+  &__item-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+  }
+
+  &__item-box {
+    display: flex;
+    min-width: 290px;
+    height: 70px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-content: flex-start;
+    justify-content: flex-end;
+  }
+
+  &__item-title {
+    color: #292f36;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  &__item-subtitle {
+    color: #4d5053;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 0.22px;
+    margin: 0;
+  }
+
+  &__item-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background-color: #f4f0ec;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      background-color: #ffffff;
+      border: 1px solid #e7e7e7;
+    }
+
+    &:active {
+      background-color: #4d5053;
+      border: none;
+    }
+
+    &:focus {
+      background-color: #cda274;
+      border: none;
+    }
+  }
+}
+
+.star-box {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.star_active path {
+  fill: #ffa928;
+}
+</style>

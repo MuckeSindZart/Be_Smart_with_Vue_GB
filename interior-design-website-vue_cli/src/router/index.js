@@ -1,8 +1,8 @@
 import HomePage from "@/pages/HomePage.vue";
 import Project from "@/pages/Project.vue";
 import ProjectDetails from "@/pages/ProjectDetails.vue";
-// import Blog from "@/pages/Blog.vue";
-// import BlogDetails from "@/pages/BlogDetails.vue";
+import Blog from "@/pages/Blog.vue";
+import BlogDetails from "@/pages/BlogDetails.vue";
 import NotFound from "@/pages/NotFound.vue";
 
 const routes = [
@@ -24,14 +24,12 @@ const routes = [
   {
     path: "/Blog",
     name: "Blog",
-    //   component: Blog,
-    component: NotFound,
+    component: Blog,
   },
   {
     path: "/BlogDetails",
     name: "BlogDetails",
-    //   component: BlogDetails,
-    component: NotFound,
+    component: BlogDetails,
   },
   {
     path: "/:catchAll(.*)",

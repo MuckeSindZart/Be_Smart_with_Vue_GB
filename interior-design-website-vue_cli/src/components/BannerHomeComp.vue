@@ -1,6 +1,6 @@
 <template>
     <section class="banner center">
-        <img class="banner-img" src="@/assets/imgs/banner.png" alt="banner" />
+        <img class="banner-img" src="@/assets/images/banner.png" alt="banner" />
         <div class="banner__intro">
           <h2 class="banner__intro-title">Let Your Home Be Unique</h2>
           <h2 class="banner__intro-subtitle">
@@ -8,7 +8,7 @@
           </h2>
           <div class="banner__intro-button">
             <a class="banner__intro-button-text" href="#">Get Started</a>
-            <img src="@/assets/imgs/vector1.svg" alt="vector1" />
+            <img src="@/assets/images/vector1.svg" alt="vector1" />
           </div>
         </div>
     </section>
@@ -16,5 +16,6 @@
 
 <script>
 export default {
-    name: 'BannerHomeComp'}
+  name: 'BannerHomeComp'
+}
 </script>

@@ -85,32 +85,12 @@
       </div>
 
       <div class="blog__items">
-        <div class="blog__item" v-for="article in articles" :key="article.text">
-          <img :src="article.imgSrc" alt="photo" class="blog__item_img" />
-          <a href="#" class="blog__item_tag">{{ article.tag }}</a>
-          <p class="blog__item_text">{{ article.text }}</p>
-          <div class="blog__item_content">
-            <div class="blog__item_content-date">{{ article.date }}</div>
-            <router-link to="/Blog" class="blog__item_content-elem">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="52"
-                height="53"
-                viewBox="0 0 52 53"
-                fill="none"
-              >
-                <circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
-                <path
-                  d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </router-link>
-          </div>
-        </div>
+        <ArticleCard class="trio"
+            v-for="item in displayedCards"
+            :key="item.id"
+            :item="item"
+          />
+          
       </div>
     </section>
 
@@ -118,35 +98,18 @@
   </main>
 </template>
 <script>
-import BannerHomeComp from "@/components/BannerHomeComp.vue";
+import BannerHomeComp from "../components/BannerHomeComp.vue";
+import ArticleCard from "../components/ArticleCard.vue";
+
+import { mapGetters } from "vuex";
+
 
 export default {
   name: "HomePage",
-  components: { BannerHomeComp },
+  components: { BannerHomeComp, ArticleCard },
 
   data() {
     return {
-      //blog__items
-      articles: [
-        {
-          imgSrc: "./imgs/main-blog-photo1.png",
-          tag: "Kitchan Design",
-          text: "Let’s Get Solution For Building Construction Work",
-          date: "26 December, 2022",
-        },
-        {
-          imgSrc: "./imgs/main-blog-photo2.png",
-          tag: "Living Design",
-          text: "Low Cost Latest Invented Interior Designing Ideas.",
-          date: "22 December, 2022",
-        },
-        {
-          imgSrc: "./imgs/main-blog-photo3.png",
-          tag: "Interior Design",
-          text: "Best For Any Office & Business Interior Solution",
-          date: "25 December, 2022",
-        },
-      ],
       //kitchen-grid
       kitchenItems: [
         {
@@ -180,5 +143,17 @@ export default {
       ],
     };
   },
+  computed: {
+    //blog__items
+    ...mapGetters(["getTrioListOfCard"]),
+    displayedCards() {
+      return this.getTrioListOfCard
+    },
+  },
 };
 </script>
+
+<style lang="scss" scope> .trio {
+   padding-bottom: 96px;
+ }
+</style>

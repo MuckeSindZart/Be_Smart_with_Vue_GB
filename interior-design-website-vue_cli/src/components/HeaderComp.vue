@@ -1,7 +1,7 @@
 <template>
     <header class="header center">
       <nav class="logo">
-        <router-link to="/" href="#"> <img class="logo-img" src="@/assets/imgs/logo.svg" alt="logo" /></router-link>
+        <router-link to="/" href="#"> <img class="logo-img" src="@/assets/images/logo.svg" alt="logo" /></router-link>
         <router-link to="/" class="logo-text">Interno</router-link>
       </nav>
 
@@ -14,6 +14,6 @@
 </template>
 <script>
 export default {
-    name: 'HeaderComp',
+  name: 'HeaderComp',
 };
 </script>

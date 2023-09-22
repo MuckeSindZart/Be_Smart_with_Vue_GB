@@ -2,7 +2,7 @@
     <footer class="footer center">
     <div class="footer-logo">
         <router-link to="/" class="logo">
-        <img class="logo-img" src="@/assets/imgs/logo.svg" alt="logo" />
+        <img class="logo-img" src="@/assets/images/logo.svg" alt="logo" />
         <h2 class="logo-text">Interno</h2>
       </router-link>
       <h2 class="footer-text">
@@ -10,10 +10,10 @@
       </h2>
       <div class="icons">
         <a href="#">
-          <img class="icon" src="@/assets/imgs/twitter.svg" alt="twitter" />
+          <img class="icon" src="@/assets/images/twitter.svg" alt="twitter" />
         </a>
         <a href="#">
-          <img class="icon" src="@/assets/imgs/in.svg" alt="in" />
+          <img class="icon" src="@/assets/images/in.svg" alt="in" />
         </a>
       </div>
     </div>
@@ -36,7 +36,7 @@
 </template>
 <script>
 export default {
-    name: 'FooterComp',
+  name: 'FooterComp',
 };
 </script>
 
